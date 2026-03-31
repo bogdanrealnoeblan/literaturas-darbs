@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+</script>
+
+<div id="nav-placeholder"></div>
+
+<script>
+fetch("nav.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+<h1>Kontakti</h1>
+<p>E-pasts: apk@gmail.com</p>
+<p>Tālrunis: +371 99999999 </p>
+
+</body>
+</html>
