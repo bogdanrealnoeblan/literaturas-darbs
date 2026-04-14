@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skroderdienas Silmačos</title>
+
+<style>
+:root{
+  --bg:#0f172a;
+  --accent:#ff7a18;
+  --accent2:#32d2aa;
+  --card:#111827;
+  --text:#f9fafb;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:12px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(12px);
+  z-index:9999;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:10px;
+}
+
+nav a:hover{
+  background:var(--accent);
+}
+
+/* HEADER + PARALLAX */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:url('https://upload.wikimedia.org/wikipedia/commons/5/5f/Jani_Latvia.jpg') center/cover fixed;
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
+
+header h1, header p{
+  position:relative;
+  z-index:2;
+}
+
+header h1{
+  font-size:60px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:120px auto;
+  padding:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+/* QUOTE */
+.quote{
+  font-style:italic;
+  border-left:5px solid var(--accent);
+  padding-left:15px;
+  margin-top:10px;
+}
+
+/* IMAGES */
+img{
+  border-radius:15px;
+  cursor:pointer;
+  transition:.4s;
+  max-width:100%;
+}
+
+img:hover{
+  transform:scale(1.03);
+  box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* HERO CARDS */
+.hero-card{
+  background:#1f2937;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.hero-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* MINI THUMBNAILS */
+.thumb{
+  width:100%;
+  max-width:360px;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* MODAL */
+#modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+}
+
+#modal img{
+  max-width:90%;
+  max-height:90%;
+}
+
+/* TYPEWRITER */
+.typewriter::after{
+  content:"|";
+  animation:blink 0.8s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#par">Par darbu</a>
+<a href="#autors">Autors</a>
+<a href="#varoni">Varoņi</a>
+<a href="#vide">Vide</a>
+<a href="#fakti">Fakti</a>
+<a href="#atsauces">Atsauces</a>
+<a href="#komanda">Komanda</a>
+</nav>
+
+<header>
+<h1 class="typewriter" data-text="Skroderdienas Silmačos"></h1>
+<p class="typewriter" data-text="Rūdolfs Blaumanis"></p>
+</header>
+
+<!-- PAR -->
+<section id="par">
+<div class="card">
+<h2>Par darbu</h2>
+<p>
+“Skroderdienas Silmačos” ir Rūdolfa Blaumaņa komēdija par notikumiem vienā lauku mājā Jāņu laikā. Darbā parādās cilvēku attiecības, svētku gatavošanās un dažādas ikdienas situācijas, kurās apvienojas humors un drāma.
+</p>
+<div class="quote">"Kas tad ir dzīve bez prieka?"</div>
+</div>
+</section>
+
+<!-- AUTORS (UPDATED) -->
+<section id="autors">
+<div class="card grid">
+
+<img src="https://www.literatura.lv/uploads/persons-files/1298419/3633-rudolfs-blaumanis-foto-001.jpg"
+onclick="openModal(this.src)">
+
+<div>
+<h2>Ziņas par autoru</h2>
+
+<p>
+Rūdolfs Blaumanis bija viens no nozīmīgākajiem latviešu rakstniekiem un dramaturgiem.
+Viņš rakstīja par lauku dzīvi, cilvēku attiecībām un morālām vērtībām.
+</p>
+
+<p>
+Viņa darbi izceļas ar reālismu un spilgtiem tēliem.
+“Skroderdienas Silmačos” ir viena no populārākajām latviešu lugām, kas tiek iestudēta katru gadu.
+</p>
+<p>Dzimis 1863. gada 1. janvārī Ērgļu pagastā Ērgļu muižas pavāra Matīsa Blaumaņa un viņa sievas Karlīnes ģimenē. Viņa vecāki (tāpat vairāki citi pazīstami cilvēki) bijuši prototipi tēliem viņa darbos. Ģimenes valoda bija vācu, latviešu valodu iemācījās no apkaimes kalpu bērniem. Piecu gadu vecumā kopā ar vecākiem pārcēlās uz dzīvi Brakos, kur arī aizvadīja lielāko daļu dzīves.
+
+Mācījās Rubīnu Annas privātskolā Ogres pagastā (1872—1875), pēc 2. Rīgas vācu apriņķa tirdzniecības skolā (1875—1881). 1881. gadā Rīgas laikraksts Die Zeitung für Stadt und Land publicēja Blaumaņa stāstu Atkalatrastā. Pēc tirdzniecības skolas pabeigšanas viņš sāka strādāt Fārbaha tirdzniecības kantorī kā kantorists, tad 1882. gadā atgriezās Brakos.</p>
+<p>1885. gadā kļuva par rakstvedi un Kokneses muižas pārvaldnieka mācekli. 1886. gadā tika publicēts viņa pirmais darbs latviski — dzejolis "Nakts".</p>
+<p>1908. gadā uzrakstīja savu pēdējo lugu "Sestdienas vakars" un smagi saslima ar tuberkulozi.</p>
+</div>
+
+</div>
+</section>
+
+<!-- VAROŅI -->
+<section id="varoni">
+<div class="card">
+<h2>Varoņi</h2>
+
+<div class="grid">
+
+<div class="hero-card">
+<h3>Antonija</h3>
+<img src="https://lastatic.ams3.cdn.digitaloceanspaces.com/2018/05/LV1_1297.jpg"
+onclick="openModal(this.src)">
+<p>Antonija ir Silmaču saimniece. Viņa ir stingra, praktiska un ļoti atbildīga par mājas un saimniecības lietām. Antonija rūpējas, lai viss tiktu izdarīts pareizi, un bieži pieņem svarīgus lēmumus ģimenē. Viņas raksturs ir nopietns, bet reizē viņa ir arī gādīga un emocionāla.</p>
+</div>
+
+<div class="hero-card">
+<h3>Dūdars</h3>
+<img src="https://filmas.arhivi.lv/sites/default/files/styles/photo_full_view/public/foto_faili/81927N.jpg"
+onclick="openModal(this.src)">
+<p>Dūdars ir viens no komiskākajiem lugas tēliem. Viņš ir vienkāršs, nedaudz neveikls, bet labsirdīgs cilvēks. Bieži nonāk smieklīgās situācijās un piešķir lugai humoru. Dūdars nav ļauns — viņš vairāk ir sirsnīgs un cilvēcīgs tēls.s</p>
+</div>
+
+<div class="hero-card">
+<h3>Joske</h3>
+<img src="https://teatris.lv/wp-content/uploads/2022/02/SkroderdienasSilmacos-KristapsKalns-7343-1618x1080.jpg"
+onclick="openModal(this.src)">
+<p>Joske ir tirgotājs un diezgan viltīgs cilvēks. Viņš ir runīgs, enerģisks un prot pielāgoties dažādām situācijām. Joske bieži domā par savu izdevīgumu, bet vienlaikus viņš ir arī interesants un spilgts tēls, kas rada kustību un dinamiku lugā.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- VIDE (RESTORED) -->
+<section id="vide">
+<div class="card">
+<h2>Vide</h2>
+<p style="margin-top:15px;">
+Darbība notiek lauku mājās Silmačos, Jāņu laikā. Vide ir tipiska latviešu lauku sēta ar svētku noskaņu, dabas tuvumu un vienkāršu dzīvesveidu.
+
+Šajā vidē cilvēki gatavojas Jāņu svinībām, risina savstarpējās attiecības un piedzīvo dažādus notikumus, kas apvieno gan humoru, gan drāmu. Silmači simbolizē latviešu tradīcijas, kopību un svētku garu.
+</p>
+<img class="thumb"
+src="https://enciklopedija.lv/api/image/original?name=2fced98776a7-942acc96-8aa8-458c-9704-b0912d5040d7.jpg"
+onclick="openModal(this.src)">
+
+
+</div>
+</section>
+
+<!-- FAKTI -->
+<section id="fakti">
+<div class="card">
+<h2>Kultūras fakti</h2>
+<p>“Skroderdienas Silmačos” ir viena no populārākajām latviešu teātra lugām. Tā pirmo reizi tika iestudēta 1901. gadā un joprojām tiek regulāri atskaņota Latvijas teātros, īpaši ap Jāņu laiku.
+
+Luga ir kļuvusi par nozīmīgu latviešu kultūras tradīciju, jo tā attēlo lauku dzīvi, cilvēku attiecības un Jāņu svinēšanas paražas. Katrs iestudējums piesaista lielu skatītāju interesi un tiek uzskatīts par vasaras teātra klasiku Latvijā.</p>
+<img class="thumb"
+src="https://teatris.lv/wp-content/uploads/2022/02/SkroderdienasSilmacos-KristapsKalns-6758-1618x1080.jpg"
+onclick="openModal(this.src)">
+
+<img class="thumb"
+src="https://cdn.satori.lv/uploads/public/5ef/387/075/5ef387075c901899671534.jpg"
+onclick="openModal(this.src)">
+
+</div>
+</section>
+
+<!-- ATSAUCES -->
+<section id="atsauces">
+<div class="card">
+<h2>Atsauces</h2>
+<ul>
+<li><a href="https://lv.wikipedia.org/wiki/Skroderdienas_Silma%C4%8Dos" target="_blank">Wikipedia</a></li>
+<li><a href="https://lv.wikipedia.org/wiki/R%C5%ABdolfs_Blaumanis" target="_blank">Autors</a></li>
+<li><a href="https://teatris.lv" target="_blank">Teātris</a></li>
+<li><a href="https://www.kulturaskanons.lv" target="_blank">Kultūras kanons</a></li>
+</ul>
+</div>
+</section>
+
+<!-- KOMANDA -->
+<section id="komanda">
+<div class="card grid">
+
+<div class="hero-card"><h3>Artūrs</h3><p>Kods</p></div>
+<div class="hero-card"><h3>Vladislavs</h3><p>Informācija</p></div>
+<div class="hero-card"><h3>Bogdans</h3><p>Dizains</p></div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" onclick="closeModal()">
+<img id="modalImg">
+</div>
+
+<script>
+function openModal(src){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('modalImg').src=src;
+}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+/* TYPEWRITER ONLY HEADER */
+function typeEffect(el){
+  const text = el.getAttribute("data-text");
+  let i = 0;
+  el.innerHTML = "";
+  function typing(){
+    if(i < text.length){
+      el.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 60);
+    }
+  }
+  typing();
+}
+document.querySelectorAll("header .typewriter").forEach(typeEffect);
+
+/* PARALLAX */
+window.addEventListener("scroll", () => {
+  document.querySelector("header").style.backgroundPositionY =
+    window.scrollY * 0.4 + "px";
+});
+</script>
+
+</body>
+</html>
